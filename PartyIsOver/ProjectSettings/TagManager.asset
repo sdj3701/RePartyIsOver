@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Bullet
+  - Item
+  - CharacterHip
+  - CharacterFoot
+  - Lhand
+  - CharacterFist
+  - Rhand
+  - CharacterHead
+  - CharacterChest
+  - Body (Medium Priority)
+  - Body (Low Priority)
+  - Body (High Priority)
+  - Prop (Medium Priority)
+  - Camera Target (Track)
+  - ItemHandle
+  - Destroyable
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - noselfcondition
+  - 
+  - 
+  - Ground
+  - Item
+  - ClimbObject
+  - InteractableObject
+  - TriggerObject
+  - IceFloor
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Player1
+  - Player2
+  - Player3
+  - Player4
+  - Player5
+  - Player6
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: PopUp
+    uniqueID: 53548671
+    locked: 0

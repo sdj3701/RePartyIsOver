@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a95b9739af85a04d84df62e3559b409, type: 3}
+  m_Name: CollisionData
+  m_EditorClassIdentifier: 
+  _objectDamage: 850
+  _punchDamage: 1000
+  _dropkickDamage: 2000
+  _headbuttDamage: 2300
+  _nuclearPunchDamage: 1000
+  _meowNyangPunchDamage: 1000
+  _objectForceNormal: 35
+  _punchForceNormal: 10
+  _dropkickForceNormal: 100
+  _headbuttForceNormal: 50
+  _nuclearPunchForceNormal: 40
+  _meowNyangPunchForceNormal: 20
+  _objectForceUp: 20
+  _punchForceUp: 5
+  _headbuttForceUp: 50
+  _dropkickForceUp: 30
+  _nuclearPunchForceUp: 20
+  _meowNyangPunchForceUp: 20
