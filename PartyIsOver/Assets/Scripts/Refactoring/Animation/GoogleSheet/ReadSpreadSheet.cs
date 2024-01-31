@@ -15,7 +15,7 @@ public class ReadSpreadSheet : MonoBehaviour
     private void Start()
     {
         //StartCoroutine(LoadData());
-        LoadData();
+        //LoadData();
     }
 
     public string LoadData()
