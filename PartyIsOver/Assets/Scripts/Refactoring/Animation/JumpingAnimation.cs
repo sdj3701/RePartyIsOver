@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 public class JumpingAnimation : Jumping
 {
     public JumpingAnimation(MovementSM stateMachine) : base(stateMachine) { }
-    string name;
+    
     private Dictionary<CharacterPhysicsMotion, AnimationSheetData> animationDictionary = new Dictionary<CharacterPhysicsMotion, AnimationSheetData>();
     
     public override async void Enter()
@@ -20,7 +20,7 @@ public class JumpingAnimation : Jumping
         sm.ReadSpreadSheet.SHEET_ID = 0;
 
         
-        name = await sm.ReadSpreadSheet.LoadDataAsync(1,1);
+        //name = await sm.ReadSpreadSheet.LoadDataAsync(1,1);
 
 
         if (animationDictionary == null)

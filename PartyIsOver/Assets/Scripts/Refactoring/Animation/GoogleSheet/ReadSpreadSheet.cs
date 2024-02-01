@@ -49,10 +49,8 @@ public class ReadSpreadSheet : MonoBehaviour
                     sheetData[i, j] = values[j];
                 }
             }
-            Debug.Log(sheetData[row, col]);
-
+            return sheetData[row, col];
         }
-        return sheetData[row, col];
     }
 
     public IEnumerator LoadData(int row =0, int col=0)
