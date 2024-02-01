@@ -13391,6 +13391,8 @@ MonoBehaviour:
   Rigidbody: {fileID: 0}
   FootRigidbody: {fileID: 0}
   BodyHandler: {fileID: 0}
+  ReadSpreadSheet: {fileID: 0}
+  aaa: {fileID: 0}
   Speed: 52500
   RunSpeed: 1.25
 --- !u!114 &794044650
@@ -13405,7 +13407,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 711fed30e2bbe54408339dd33fce9e20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rowCount: 0
+  ADDRESS: https://docs.google.com/spreadsheets/d/16slVFqeg2egBHNcS-NPDRZzizFQwPH1oyr9AVtt9U2k
+  RANGE: B2:E
+  SHEET_ID: 0
 --- !u!1001 &799031091
 PrefabInstance:
   m_ObjectHideFlags: 0

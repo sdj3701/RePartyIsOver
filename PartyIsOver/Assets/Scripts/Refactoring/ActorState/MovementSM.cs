@@ -45,10 +45,5 @@ public class MovementSM : StateMachine
     protected override BaseState GetInitialState()
     {
         return IdleState;
-    }
-
-    public void StartAnimation(int row =0, int col = 0)
-    {
-        StartCoroutine(ReadSpreadSheet.LoadData(row,col));
-    }
+    } 
 }
