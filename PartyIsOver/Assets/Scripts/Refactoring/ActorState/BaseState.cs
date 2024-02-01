@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting;
 using static AniFrameData;
 using static CharacterPhysicsMotion;
 
@@ -98,4 +99,65 @@ public class BaseState
         }
         return _direction;
     }
+
+    protected Rigidbody Part(string part)
+    {
+        Rigidbody partRigidboy;
+        switch (part)
+        {
+            case "GreenHead":
+                partRigidboy = sm.BodyHandler.Head.PartRigidbody;
+                break;
+            case "GreenChest":
+                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
+                break;
+            case "GreenWaist":
+                partRigidboy = sm.BodyHandler.Head.PartRigidbody;
+                break;
+            case "GreenHip":
+                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
+                break;
+            case "GreenLegR1":
+                partRigidboy = sm.BodyHandler.Head.PartRigidbody;
+                break;
+            case "GreenLegL1":
+                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
+                break;
+            case "GreenLegR2":
+                partRigidboy = sm.BodyHandler.Head.PartRigidbody;
+                break;
+            case "GreenLegL2":
+                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
+                break;
+            case "foot_r":
+                partRigidboy = sm.BodyHandler.Head.PartRigidbody;
+                break;
+            case "foot_l":
+                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
+                break;
+            case "GreenUpperArmL":
+                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
+                break;
+            case "GreenUpperArmR":
+                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
+                break;
+            case "GreenForeArmL":
+                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
+                break;
+            case "GreenForeArmR":
+                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
+                break;
+            case "GreenFistL":
+                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
+                break;
+            case "GreenFistR":
+                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
+                break;
+            default:
+                partRigidboy = sm.Rigidbody;
+                break;
+        }
+        return partRigidboy;
+    }
+
 }
