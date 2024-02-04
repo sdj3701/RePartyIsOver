@@ -19,9 +19,7 @@ public class JumpingAnimation : Jumping
         sm.ReadSpreadSheet.RANGE    = "B2:E";
         sm.ReadSpreadSheet.SHEET_ID = 0;
 
-        
         //name = await sm.ReadSpreadSheet.LoadDataAsync(1,1);
-
 
         if (animationDictionary == null)
         {
@@ -32,7 +30,6 @@ public class JumpingAnimation : Jumping
         {
             // TODO : 키 값그냥 사용하기
         }
-
     }
 
     public override void UpdatePhysics()
@@ -44,7 +41,6 @@ public class JumpingAnimation : Jumping
         AlignToVector(sm.BodyHandler.Waist.PartRigidbody, sm.BodyHandler.Chest.transform.forward, Vector3.up, 0.1f, 8f * applyedForce);
         AlignToVector(sm.BodyHandler.Hip.PartRigidbody, -sm.BodyHandler.Hip.transform.up, moveDir, 0.1f, 8f * applyedForce);
         AlignToVector(sm.BodyHandler.Hip.PartRigidbody, sm.BodyHandler.Hip.transform.forward, Vector3.up, 0.1f, 8f * applyedForce);
-
     }
 
 
@@ -76,19 +72,4 @@ for (int i = 0; i < MoveAngleJumpAniData.Length; i++)
         AlignToVector(_bodyHandler.Hip.PartRigidbody, -_bodyHandler.Hip.transform.up, _moveDir, 0.1f, 8f * _applyedForce);
         AlignToVector(_bodyHandler.Hip.PartRigidbody, _bodyHandler.Hip.transform.forward, Vector3.up, 0.1f, 8f * _applyedForce);
     */
-
-    void AniForceVelocityChange(CharacterPhysicsMotion[] _forceSpeed, int _elementCount, Vector3 _dir)
-    {
-        for (int i = 0; i < _forceSpeed[_elementCount].ReferenceRigidbodies.Length; i++)
-        {
-            if (_forceSpeed[_elementCount].ActionForceDirections[i] == ForceDirection.Zero || _forceSpeed[_elementCount].ActionForceDirections[i] == ForceDirection.ZeroReverse)
-                _forceSpeed[_elementCount].ActionRigidbodies[i].AddForce(_dir * _forceSpeed[_elementCount].ActionForceValues[i], ForceMode.Impulse);
-            else
-            {
-                Vector3 _direction = GetForceDirection(_forceSpeed[_elementCount], i);
-                _forceSpeed[_elementCount].ActionRigidbodies[i].AddForce(_direction * _forceSpeed[_elementCount].ActionForceValues[i], ForceMode.Impulse);
-            }
-        }
-    }
-
 }
