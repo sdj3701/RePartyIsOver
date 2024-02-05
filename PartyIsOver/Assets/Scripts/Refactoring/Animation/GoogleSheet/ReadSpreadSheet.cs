@@ -53,6 +53,7 @@ public class ReadSpreadSheet : MonoBehaviour
         }
     }
 
+    // 반환값을 받아야함
     public IEnumerator LoadData(int row =0, int col=0)
     {
         UnityWebRequest www = UnityWebRequest.Get(GetTSVAddress(ADDRESS, RANGE, SHEET_ID));

@@ -10,7 +10,7 @@ public class JumpingAnimation : Jumping
 {
     public JumpingAnimation(MovementSM stateMachine) : base(stateMachine) { }
     
-    private Dictionary<CharacterPhysicsMotion, AnimationSheetData> animationDictionary = new Dictionary<CharacterPhysicsMotion, AnimationSheetData>();
+    private Dictionary<Rigidbody, Rigidbody> animationDictionary = new Dictionary<Rigidbody, Rigidbody>();
     
     public override async void Enter()
     {
@@ -32,7 +32,7 @@ public class JumpingAnimation : Jumping
         }
     }
 
-    public override void UpdatePhysics()
+    public override async void UpdatePhysics()
     {
         base.UpdatePhysics();
         AlignToVector(sm.BodyHandler.Chest.PartRigidbody, -sm.BodyHandler.Chest.transform.up, moveDir / 4f + -Vector3.up, 0.1f, 4f * applyedForce);
@@ -41,6 +41,9 @@ public class JumpingAnimation : Jumping
         AlignToVector(sm.BodyHandler.Waist.PartRigidbody, sm.BodyHandler.Chest.transform.forward, Vector3.up, 0.1f, 8f * applyedForce);
         AlignToVector(sm.BodyHandler.Hip.PartRigidbody, -sm.BodyHandler.Hip.transform.up, moveDir, 0.1f, 8f * applyedForce);
         AlignToVector(sm.BodyHandler.Hip.PartRigidbody, sm.BodyHandler.Hip.transform.forward, Vector3.up, 0.1f, 8f * applyedForce);
+
+        animationDictionary.Add(sm.aaa.ReferenceRigidbodies[0], Part(await sm.ReadSpreadSheet.LoadDataAsync(0, 0)));
+
     }
 
 
