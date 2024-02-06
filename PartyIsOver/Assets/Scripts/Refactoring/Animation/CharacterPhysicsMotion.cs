@@ -4,20 +4,10 @@ using UnityEngine;
 
 public class CharacterPhysicsMotion
 {
-    public enum ForceDirection
-    {
-        Zero,
-        ZeroReverse,
-        Forward,
-        Backward,
-        Up,
-        Down,
-        Right,
-        Left,
-    }
+    
     public Rigidbody[] ReferenceRigidbodies;
     public Rigidbody[] ActionRigidbodies;
-    public ForceDirection[] ActionForceDirections;
+    public Define.ForceDirection[] ActionForceDirections;
     public float[] ActionForceValues;
 
 }

@@ -5,13 +5,13 @@ using WebSocketSharp;
 using static AniFrameData;
 using static CharacterPhysicsMotion;
 using System.Threading.Tasks;
+using UnityEngine.Scripting;
 
 public class JumpingAnimation : Jumping
 {
     public JumpingAnimation(MovementSM stateMachine) : base(stateMachine) { }
-    
+
     private Dictionary<Rigidbody, Rigidbody> animationDictionary = new Dictionary<Rigidbody, Rigidbody>();
-    
     public override async void Enter()
     {
         base.Enter();
@@ -19,7 +19,11 @@ public class JumpingAnimation : Jumping
         sm.ReadSpreadSheet.RANGE    = "B2:E";
         sm.ReadSpreadSheet.SHEET_ID = 0;
 
+        //animationDictionary.Add(aaa.ReferenceRigidbodies[0], Part(await sm.ReadSpreadSheet.LoadDataAsync(0, 0)));
+        await sm.ReadSpreadSheet.LoadDataAsync();
+        Debug.Log(sm.JumpAnimation.ReferenceRigidbodies);
         //name = await sm.ReadSpreadSheet.LoadDataAsync(1,1);
+
 
         if (animationDictionary == null)
         {
@@ -42,37 +46,8 @@ public class JumpingAnimation : Jumping
         AlignToVector(sm.BodyHandler.Hip.PartRigidbody, -sm.BodyHandler.Hip.transform.up, moveDir, 0.1f, 8f * applyedForce);
         AlignToVector(sm.BodyHandler.Hip.PartRigidbody, sm.BodyHandler.Hip.transform.forward, Vector3.up, 0.1f, 8f * applyedForce);
 
-        animationDictionary.Add(sm.aaa.ReferenceRigidbodies[0], Part(await sm.ReadSpreadSheet.LoadDataAsync(0, 0)));
 
     }
-
-
-    //점프 하는 애니메이션
-    /*
-    if (isStateChange)
-    {
-            isGrounded = false;
-            for (int i = 0; i<MoveForceJumpAniData.Length; i++)
-            {
-                AniForceVelocityChange(MoveForceJumpAniData, i, Vector3.up);
-                if (i == 2)
-                    AniForce(MoveForceJumpAniData, i, Vector3.down);
-     }
-for (int i = 0; i < MoveAngleJumpAniData.Length; i++)
-{
-    AniAngleForce(MoveAngleJumpAniData, i, _moveDir + new Vector3(0, 0.2f, 0f));
 }
 
-        }
-
-        _bodyHandler.Chest.PartRigidbody.AddForce((_runVectorForce10 + _moveDir), ForceMode.VelocityChange);
-        _bodyHandler.Hip.PartRigidbody.AddForce((-_runVectorForce5 + -_moveDir), ForceMode.VelocityChange);
-
-        AlignToVector(_bodyHandler.Chest.PartRigidbody, -_bodyHandler.Chest.transform.up, _moveDir / 4f + -Vector3.up, 0.1f, 4f * _applyedForce);
-        AlignToVector(_bodyHandler.Chest.PartRigidbody, _bodyHandler.Chest.transform.forward, Vector3.up, 0.1f, 8f * _applyedForce);
-        AlignToVector(_bodyHandler.Waist.PartRigidbody, -_bodyHandler.Waist.transform.up, _moveDir / 4f + -Vector3.up, 0.1f, 4f * _applyedForce);
-        AlignToVector(_bodyHandler.Waist.PartRigidbody, _bodyHandler.Chest.transform.forward, Vector3.up, 0.1f, 8f * _applyedForce);
-        AlignToVector(_bodyHandler.Hip.PartRigidbody, -_bodyHandler.Hip.transform.up, _moveDir, 0.1f, 8f * _applyedForce);
-        AlignToVector(_bodyHandler.Hip.PartRigidbody, _bodyHandler.Hip.transform.forward, Vector3.up, 0.1f, 8f * _applyedForce);
-    */
-}
+        //animationDictionary.Add(sm.aaa.ReferenceRigidbodies[0], Part(await sm.ReadSpreadSheet.LoadDataAsync(0, 0)));

@@ -5,7 +5,7 @@ using UnityEngine.Scripting;
 using static AniFrameData;
 using static CharacterPhysicsMotion;
 
-public class BaseState 
+public class BaseState
 {
     protected float maxSpeed = 2f;
     protected float applyedForce = 800f;
@@ -52,7 +52,7 @@ public class BaseState
     {
         for (int i = 0; i < _forceSpeed[_elementCount].ReferenceRigidbodies.Length; i++)
         {
-            if (_forceSpeed[_elementCount].ActionForceDirections[i] == ForceDirection.Zero || _forceSpeed[_elementCount].ActionForceDirections[i] == ForceDirection.ZeroReverse)
+            if (_forceSpeed[_elementCount].ActionForceDirections[i] == Define.ForceDirection.Zero || _forceSpeed[_elementCount].ActionForceDirections[i] == Define.ForceDirection.ZeroReverse)
                 _forceSpeed[_elementCount].ActionRigidbodies[i].AddForce(_dir * _forceSpeed[_elementCount].ActionForceValues[i], ForceMode.Impulse);
             else
             {
@@ -64,33 +64,33 @@ public class BaseState
 
     protected Vector3 GetForceDirection(CharacterPhysicsMotion data, int index)
     {
-        ForceDirection _rollState = data.ActionForceDirections[index];
+        Define.ForceDirection _rollState = data.ActionForceDirections[index];
         Vector3 _direction;
 
         switch (_rollState)
         {
-            case ForceDirection.Zero:
+            case Define.ForceDirection.Zero:
                 _direction = new Vector3(0, 0, 0);
                 break;
-            case ForceDirection.ZeroReverse:
+            case Define.ForceDirection.ZeroReverse:
                 _direction = new Vector3(-1, -1, -1);
                 break;
-            case ForceDirection.Forward:
+            case Define.ForceDirection.Forward:
                 _direction = -data.ReferenceRigidbodies[index].transform.up;
                 break;
-            case ForceDirection.Backward:
+            case Define.ForceDirection.Backward:
                 _direction = data.ReferenceRigidbodies[index].transform.up;
                 break;
-            case ForceDirection.Up:
+            case Define.ForceDirection.Up:
                 _direction = data.ReferenceRigidbodies[index].transform.forward;
                 break;
-            case ForceDirection.Down:
+            case Define.ForceDirection.Down:
                 _direction = -data.ReferenceRigidbodies[index].transform.forward;
                 break;
-            case ForceDirection.Left:
+            case Define.ForceDirection.Left:
                 _direction = -data.ReferenceRigidbodies[index].transform.right;
                 break;
-            case ForceDirection.Right:
+            case Define.ForceDirection.Right:
                 _direction = data.ReferenceRigidbodies[index].transform.right;
                 break;
             default:
@@ -100,64 +100,6 @@ public class BaseState
         return _direction;
     }
 
-    protected Rigidbody Part(string part)
-    {
-        Rigidbody partRigidboy;
-        switch (part)
-        {
-            case "GreenHead":
-                partRigidboy = sm.BodyHandler.Head.PartRigidbody;
-                break;
-            case "GreenChest":
-                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
-                break;
-            case "GreenWaist":
-                partRigidboy = sm.BodyHandler.Head.PartRigidbody;
-                break;
-            case "GreenHip":
-                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
-                break;
-            case "GreenLegR1":
-                partRigidboy = sm.BodyHandler.Head.PartRigidbody;
-                break;
-            case "GreenLegL1":
-                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
-                break;
-            case "GreenLegR2":
-                partRigidboy = sm.BodyHandler.Head.PartRigidbody;
-                break;
-            case "GreenLegL2":
-                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
-                break;
-            case "foot_r":
-                partRigidboy = sm.BodyHandler.Head.PartRigidbody;
-                break;
-            case "foot_l":
-                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
-                break;
-            case "GreenUpperArmL":
-                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
-                break;
-            case "GreenUpperArmR":
-                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
-                break;
-            case "GreenForeArmL":
-                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
-                break;
-            case "GreenForeArmR":
-                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
-                break;
-            case "GreenFistL":
-                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
-                break;
-            case "GreenFistR":
-                partRigidboy = sm.BodyHandler.Chest.PartRigidbody;
-                break;
-            default:
-                partRigidboy = sm.Rigidbody;
-                break;
-        }
-        return partRigidboy;
-    }
+    
 
 }

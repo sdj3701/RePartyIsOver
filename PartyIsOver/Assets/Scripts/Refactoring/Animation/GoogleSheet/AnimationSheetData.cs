@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
-public class AnimationSheetData 
+public class AnimationSheetData : MonoBehaviour 
 {
-    public string[] ReferenceRigidbodies { get; set; }
-    public string[] ActionRigidbodies { get; set; }
-    public string[] ActionForceDirections { get; set; }
-    public long[] ActionForceValues { get; set; }
+    public CharacterPhysicsMotion JumpAnimation; 
+
+
 }

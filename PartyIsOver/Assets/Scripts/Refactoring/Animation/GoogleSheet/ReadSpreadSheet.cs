@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using static UnityEngine.Rendering.DebugUI.Table;
 using System.Threading.Tasks;
+using System.Drawing;
 
 public class ReadSpreadSheet : MonoBehaviour
 {
@@ -12,11 +13,19 @@ public class ReadSpreadSheet : MonoBehaviour
     public long SHEET_ID   = 0;
 
     public string[,] sheetData;
+    int size;
 
-    public async Task<string> LoadDataAsync(int row, int col)
+    MovementSM sm;
+
+    private void Awake()
+    {
+        sm = GetComponent<MovementSM>();
+    }
+
+    public async Task<string> LoadDataAsync()
     {
         UnityWebRequest www = UnityWebRequest.Get(GetTSVAddress(ADDRESS, RANGE, SHEET_ID));
-
+        size = 0;
         // 비동기적으로 SendWebRequst 호출
         var operation = www.SendWebRequest();
 
@@ -47,10 +56,19 @@ public class ReadSpreadSheet : MonoBehaviour
                 for (int j = 0; j < values.Length; j++)
                 {
                     sheetData[i, j] = values[j];
+                    // TODO : 여기서 데이터를 보내는 함수를 호출해서 사용
+                    Debug.Log("1");
+                    sm.DataSave(i, j, sheetData[i, j]);
                 }
             }
-            return sheetData[row, col];
+            size = rows.Length - 1;
+            return null;
         }
+    }
+
+    public int Size()
+    {
+        return size;
     }
 
     // 반환값을 받아야함
@@ -89,5 +107,7 @@ public class ReadSpreadSheet : MonoBehaviour
     {
         return $"{address}/export?format=tsv&range={range}&gid={sheetID}";
     }
+
+
 
 }

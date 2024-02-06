@@ -42,6 +42,17 @@ public class Define
         Behind = 3
     }
 
+    public enum ForceDirection
+    {
+        Zero,
+        ZeroReverse,
+        Forward,
+        Backward,
+        Up,
+        Down,
+        Right,
+        Left,
+    }
 
     public enum Effect
     {
