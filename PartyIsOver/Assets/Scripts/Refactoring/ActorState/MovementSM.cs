@@ -48,8 +48,6 @@ public class MovementSM : StateMachine
 
     public void DataSave(int count,int num, string dataName)
     {
-        Debug.Log(count + " " +  num + " " + dataName);
-
         switch (num)
         {
             case 0:
@@ -71,7 +69,6 @@ public class MovementSM : StateMachine
 
     protected Rigidbody Part(string part)
     {
-        Debug.Log(part);
         Rigidbody partRigidboy;
         switch (part)
         {
@@ -127,8 +124,6 @@ public class MovementSM : StateMachine
                 partRigidboy = Rigidbody;
                 break;
         }
-        Debug.Log(partRigidboy);
-
         return partRigidboy;
     }
 
@@ -162,7 +157,6 @@ public class MovementSM : StateMachine
                 direction = Define.ForceDirection.Left;
                 break;
         }
-
         return direction;
     }
 

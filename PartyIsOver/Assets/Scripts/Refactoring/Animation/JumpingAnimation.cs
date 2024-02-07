@@ -21,8 +21,7 @@ public class JumpingAnimation : Jumping
 
         //animationDictionary.Add(aaa.ReferenceRigidbodies[0], Part(await sm.ReadSpreadSheet.LoadDataAsync(0, 0)));
         await sm.ReadSpreadSheet.LoadDataAsync();
-        Debug.Log(sm.JumpAnimation.ReferenceRigidbodies);
-        //name = await sm.ReadSpreadSheet.LoadDataAsync(1,1);
+        Debug.Log(sm.JumpAnimation.ReferenceRigidbodies[0]);
 
 
         if (animationDictionary == null)

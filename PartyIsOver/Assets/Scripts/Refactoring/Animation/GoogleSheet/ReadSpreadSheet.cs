@@ -48,6 +48,7 @@ public class ReadSpreadSheet : MonoBehaviour
             string rawSheetData = www.downloadHandler.text;
             // 행 별로 데이터 분할
             string[] rows = rawSheetData.Split('\n');
+            size = rows.Length - 1;
 
             sheetData = new string[rows.Length - 1, rows[0].Split('\t').Length];
             for (int i = 0; i < rows.Length - 1; i++)
@@ -58,10 +59,11 @@ public class ReadSpreadSheet : MonoBehaviour
                     sheetData[i, j] = values[j];
                     // TODO : 여기서 데이터를 보내는 함수를 호출해서 사용
                     Debug.Log("1");
+                    sm.JumpAnimation.ReferenceRigidbodies = new Rigidbody[size];
                     sm.DataSave(i, j, sheetData[i, j]);
+                    Debug.Log("2");
                 }
             }
-            size = rows.Length - 1;
             return null;
         }
     }
@@ -107,7 +109,4 @@ public class ReadSpreadSheet : MonoBehaviour
     {
         return $"{address}/export?format=tsv&range={range}&gid={sheetID}";
     }
-
-
-
 }
