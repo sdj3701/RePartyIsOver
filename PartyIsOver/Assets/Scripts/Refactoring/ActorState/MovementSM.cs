@@ -52,6 +52,7 @@ public class MovementSM : StateMachine
         {
             case 0:
                 JumpAnimation.ReferenceRigidbodies[count] = Part(dataName);
+                Debug.Log(JumpAnimation.ReferenceRigidbodies[count]);
                 break;
             case 1:
                 JumpAnimation.ActionRigidbodies[count] = Part(dataName);
@@ -67,7 +68,7 @@ public class MovementSM : StateMachine
         }
     }
 
-    protected Rigidbody Part(string part)
+    private Rigidbody Part(string part)
     {
         Rigidbody partRigidboy;
         switch (part)
@@ -127,7 +128,7 @@ public class MovementSM : StateMachine
         return partRigidboy;
     }
 
-    public Define.ForceDirection Direction(string name)
+    private Define.ForceDirection Direction(string name)
     {
         Define.ForceDirection direction = 0;
         switch (name)
@@ -160,7 +161,7 @@ public class MovementSM : StateMachine
         return direction;
     }
 
-    public float PowerValue(string value)
+    private float PowerValue(string value)
     {
         float power = float.Parse(value);
         return power;

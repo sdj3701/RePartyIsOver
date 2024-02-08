@@ -11,7 +11,6 @@ public class JumpingAnimation : Jumping
 {
     public JumpingAnimation(MovementSM stateMachine) : base(stateMachine) { }
 
-    private Dictionary<Rigidbody, Rigidbody> animationDictionary = new Dictionary<Rigidbody, Rigidbody>();
     public override async void Enter()
     {
         base.Enter();
@@ -19,20 +18,20 @@ public class JumpingAnimation : Jumping
         sm.ReadSpreadSheet.RANGE    = "B2:E";
         sm.ReadSpreadSheet.SHEET_ID = 0;
 
-        //animationDictionary.Add(aaa.ReferenceRigidbodies[0], Part(await sm.ReadSpreadSheet.LoadDataAsync(0, 0)));
-        await sm.ReadSpreadSheet.LoadDataAsync();
-        Debug.Log(sm.JumpAnimation.ReferenceRigidbodies[0]);
-
-
-        if (animationDictionary == null)
+        if (sm.JumpAnimation.ReferenceRigidbodies == null)
         {
-            // TODO : 데이터 넣어주기
-            //animationDictionary.Add(name);
+            // 데이터 로드
+            await sm.ReadSpreadSheet.LoadDataAsync("JumpAnimation");
         }
         else
         {
-            // TODO : 키 값그냥 사용하기
+            Debug.Log(sm.JumpAnimation.ReferenceRigidbodies[0]);
+            Debug.Log(sm.JumpAnimation.ActionRigidbodies[0]);
+            Debug.Log(sm.JumpAnimation.ActionForceDirections[0]);
+            Debug.Log(sm.JumpAnimation.ActionForceValues[0]);
+            Debug.Log("데이터가 있습니다.");
         }
+
     }
 
     public override async void UpdatePhysics()

@@ -22,7 +22,7 @@ public class ReadSpreadSheet : MonoBehaviour
         sm = GetComponent<MovementSM>();
     }
 
-    public async Task<string> LoadDataAsync()
+    public async Task<string> LoadDataAsync(string dataName)
     {
         UnityWebRequest www = UnityWebRequest.Get(GetTSVAddress(ADDRESS, RANGE, SHEET_ID));
         size = 0;
@@ -57,11 +57,9 @@ public class ReadSpreadSheet : MonoBehaviour
                 for (int j = 0; j < values.Length; j++)
                 {
                     sheetData[i, j] = values[j];
-                    // TODO : 여기서 데이터를 보내는 함수를 호출해서 사용
-                    Debug.Log("1");
-                    sm.JumpAnimation.ReferenceRigidbodies = new Rigidbody[size];
+                    // TODO : 들어 있는 데이터 크기정해주기
+                    ArraySize(dataName);
                     sm.DataSave(i, j, sheetData[i, j]);
-                    Debug.Log("2");
                 }
             }
             return null;
@@ -109,4 +107,22 @@ public class ReadSpreadSheet : MonoBehaviour
     {
         return $"{address}/export?format=tsv&range={range}&gid={sheetID}";
     }
+
+    private void ArraySize(string dataName)
+    {
+        // TODO : 나중에 string 을 가지고 와서 이름에 따라서 switch case 문으로 같은 받아 오면 될듯
+
+        switch (dataName)
+        {
+            case "JumpingAnimation":
+                {
+                    sm.JumpAnimation.ReferenceRigidbodies = new Rigidbody[size];
+                    sm.JumpAnimation.ActionRigidbodies = new Rigidbody[size];
+                    sm.JumpAnimation.ActionForceValues = new float[size];
+                    sm.JumpAnimation.ActionForceDirections = new Define.ForceDirection[size];
+                }
+                break;
+        }
+    }
+
 }
