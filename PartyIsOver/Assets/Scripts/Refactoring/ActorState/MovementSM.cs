@@ -68,7 +68,6 @@ public class MovementSM : StateMachine
         }
     }
 
-
     private Rigidbody Part(string part)
     {
         Rigidbody partRigidboy;

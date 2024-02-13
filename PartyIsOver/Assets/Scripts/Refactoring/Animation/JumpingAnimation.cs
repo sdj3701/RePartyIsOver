@@ -47,5 +47,3 @@ public class JumpingAnimation : Jumping
         AlignToVector(sm.BodyHandler.Hip.PartRigidbody, sm.BodyHandler.Hip.transform.forward, Vector3.up, 0.1f, 8f * applyedForce);
     }
 }
-
-        //animationDictionary.Add(sm.aaa.ReferenceRigidbodies[0], Part(await sm.ReadSpreadSheet.LoadDataAsync(0, 0)));

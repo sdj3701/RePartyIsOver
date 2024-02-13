@@ -25,10 +25,6 @@ public class CheckEnemyInAttackRange : Node
             state = NodeState.FAILURE;
             return state;
         }
-        else
-        {
-            // TODO : t 가 Null이떠서 문제가 생김
-        }
 
         Transform target = (Transform)t;
 
