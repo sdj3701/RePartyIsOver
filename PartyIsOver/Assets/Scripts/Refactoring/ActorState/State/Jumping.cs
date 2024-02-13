@@ -22,7 +22,7 @@ public class Jumping : BaseState
     {
         base.Enter();
 
-        sm.Rigidbody.AddForce(Vector3.up * sm.Speed * 0.5f);
+        //sm.Rigidbody.AddForce(Vector3.up * sm.Speed * 0.5f);
         change = false;
     }
 

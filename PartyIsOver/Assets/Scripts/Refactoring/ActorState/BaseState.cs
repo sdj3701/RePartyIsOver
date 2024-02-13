@@ -61,6 +61,19 @@ public class BaseState
             }
         }
     }
+    protected void AnimateWithDirectedForce(CharacterPhysicsMotion _forceSpeed, Vector3 _dir = new Vector3(), float _punchpower = 1)
+    {
+        for (int i = 0; i < _forceSpeed.ReferenceRigidbodies.Length; i++)
+        {
+            if (_forceSpeed.ActionForceDirections[i] == Define.ForceDirection.Zero || _forceSpeed.ActionForceDirections[i] == Define.ForceDirection.ZeroReverse)
+                _forceSpeed.ActionRigidbodies[i].AddForce(_dir * _forceSpeed.ActionForceValues[i], ForceMode.Impulse);
+            else
+            {
+                Vector3 _direction = GetForceDirection(_forceSpeed, i);
+                _forceSpeed.ActionRigidbodies[i].AddForce(_direction * _forceSpeed.ActionForceValues[i], ForceMode.Impulse);
+            }   
+        }
+    }
 
     protected Vector3 GetForceDirection(CharacterPhysicsMotion data, int index)
     {

@@ -70,6 +70,7 @@ public class ReadSpreadSheet : MonoBehaviour
         // TODO : 나중에 string 을 가지고 와서 이름에 따라서 switch case 문으로 같은 받아 오면 될듯
         switch (dataName)
         {
+            //dataName 확인 잘하기
             case "JumpAnimation":
                 {
                     sm.JumpAnimation.ReferenceRigidbodies = new Rigidbody[size];

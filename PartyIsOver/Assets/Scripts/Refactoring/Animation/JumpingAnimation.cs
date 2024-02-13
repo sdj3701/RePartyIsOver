@@ -21,16 +21,18 @@ public class JumpingAnimation : Jumping
         if (sm.JumpAnimation.ReferenceRigidbodies == null)
         {
             // 데이터 로드
+            Debug.Log("데이터 없으니까 생성");
             await sm.ReadSpreadSheet.LoadDataAsync("JumpAnimation");
-        }
-        else
-        {
-            Debug.Log(sm.JumpAnimation.ReferenceRigidbodies[0]);
-            Debug.Log(sm.JumpAnimation.ActionRigidbodies[0]);
-            Debug.Log(sm.JumpAnimation.ActionForceDirections[0]);
-            Debug.Log(sm.JumpAnimation.ActionForceValues[0]);
+            Debug.Log("생성 완료");
         }
 
+        //뭔가 굳이 필요한가?
+        for(int i =0; i< sm.JumpAnimation.ReferenceRigidbodies.Length; i++)
+        {
+            AnimateWithDirectedForce(sm.JumpAnimation,Vector3.up * 1.2f);
+            if (i == 1)
+                AnimateWithDirectedForce(sm.JumpAnimation, Vector3.down);
+        }
     }
 
     public override async void UpdatePhysics()
@@ -42,8 +44,6 @@ public class JumpingAnimation : Jumping
         AlignToVector(sm.BodyHandler.Waist.PartRigidbody, sm.BodyHandler.Chest.transform.forward, Vector3.up, 0.1f, 8f * applyedForce);
         AlignToVector(sm.BodyHandler.Hip.PartRigidbody, -sm.BodyHandler.Hip.transform.up, moveDir, 0.1f, 8f * applyedForce);
         AlignToVector(sm.BodyHandler.Hip.PartRigidbody, sm.BodyHandler.Hip.transform.forward, Vector3.up, 0.1f, 8f * applyedForce);
-
-
     }
 }
 
