@@ -70,7 +70,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacterBase
     #endregion
 
     #region 변수
-
+    public bool IsDie;
     #endregion
 
     #region 컴포넌트

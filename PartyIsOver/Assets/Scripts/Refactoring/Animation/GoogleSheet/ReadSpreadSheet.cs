@@ -82,48 +82,8 @@ public class ReadSpreadSheet : MonoBehaviour
         }
     }
 
-    public int Size()
-    {
-        return size;
-    }
-
-    // 반환값을 받아야함
-    public IEnumerator LoadData(int row =0, int col=0)
-    {
-        UnityWebRequest www = UnityWebRequest.Get(GetTSVAddress(ADDRESS, RANGE, SHEET_ID));
-        yield return www.SendWebRequest();
-
-        if (www.isNetworkError || www.isHttpError)
-        {
-            Debug.Log("Error loading data : " + www.error);
-        }
-        else
-        {
-            string rawsheetData = www.downloadHandler.text;
-            //행 별로 데이터 분할
-            string[] rows = rawsheetData.Split('\n');
-
-            // 이차원 배열 초기화
-            sheetData = new string[rows.Length - 1, rows[0].Split('\t').Length];
-
-            //데이터 채우기
-            for (int i = 0; i < rows.Length - 1; i++)
-            {
-                string[] values = rows[i].Split('\t');
-                for (int j = 0; j < values.Length; j++)
-                {
-                    sheetData[i, j] = values[j];
-                }
-            }
-            Debug.Log($"Value at (row, col): {sheetData[row, col]}");
-        }
-    }
-
     public static string GetTSVAddress(string address, string range, long sheetID)
     {
         return $"{address}/export?format=tsv&range={range}&gid={sheetID}";
     }
-
-
-
 }

@@ -16,6 +16,7 @@ public class TaskPatrol : Node
     private float _waitCounter = 0f;
     private bool _waiting = false;
 
+    //»ý¼ºÀÚ 
     public TaskPatrol(Transform transform, Transform[] waypoints)
     {
         _transform = transform;
@@ -38,7 +39,7 @@ public class TaskPatrol : Node
         else
         {
             Transform wp = _wayPoints[_currentWaypointIndex];
-            if(Vector3.Distance(_transform.position, wp.position) < 0.01f)
+            if(Vector3.Distance(_transform.position, wp.position) < 0.1f)
             {
                 _transform.position = wp.position;
                 _waitCounter = 0f;
@@ -46,7 +47,6 @@ public class TaskPatrol : Node
 
                 _currentWaypointIndex = (_currentWaypointIndex + 1) % _wayPoints.Length;
                 _animator.SetBool("Walking", false);
-
             }
             else
             {
@@ -55,7 +55,7 @@ public class TaskPatrol : Node
             }
         }
 
-        state = NodeState.Running;
+        state = NodeState.RUNNIG;
         return state;
     }
 

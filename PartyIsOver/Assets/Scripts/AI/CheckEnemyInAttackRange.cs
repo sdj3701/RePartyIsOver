@@ -22,20 +22,25 @@ public class CheckEnemyInAttackRange : Node
         object t = GetData("target");
         if(t != null)
         {
-            state = NodeState.Failure;
+            state = NodeState.FAILURE;
             return state;
+        }
+        else
+        {
+            // TODO : t 가 Null이떠서 문제가 생김
         }
 
         Transform target = (Transform)t;
+
         if(Vector3.Distance(_transform.position, target.position) <= GuardBT.attackRange)
         {
             _animator.SetBool("Attacking", true);
             _animator.SetBool("Walking", false);
 
-            state = NodeState.Success;
+            state = NodeState.SUCCESS;
             return state;
         }
-        state = NodeState.Failure;
+        state = NodeState.FAILURE;
         return state;
     }
 }

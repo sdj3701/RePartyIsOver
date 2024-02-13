@@ -6,9 +6,9 @@ namespace BehaviorTree
     //3가지 생태 실행 성공 실패
     public enum NodeState
     {
-        Running,
-        Success,
-        Failure
+        RUNNIG,
+        SUCCESS,
+        FAILURE
     }
 
     public class Node
@@ -43,7 +43,7 @@ namespace BehaviorTree
         }
 
         //노드의 평가를 수행하고 상태를 반환함
-        public virtual NodeState Evaluate() => NodeState.Failure;
+        public virtual NodeState Evaluate() => NodeState.FAILURE;
 
         //데이터 추가를 대입
         public void SetData(string key, object value)
@@ -77,7 +77,6 @@ namespace BehaviorTree
                 _dataContext.Remove(key);
                 return true;
             }
-
             Node node = parent;
             while(node != null)
             {

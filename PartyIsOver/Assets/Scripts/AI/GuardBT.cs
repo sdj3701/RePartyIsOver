@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using BehaviorTree;
 
+
 public class GuardBT : Tree
 {
     public UnityEngine.Transform[] waypoints;
@@ -12,19 +13,20 @@ public class GuardBT : Tree
 
     protected override Node SetupTree()
     {
+        //Node root = new TaskPatrol(transform, waypoints);
         Node root = new Selector(new List<Node>
         {
             //어택하는 간단한 노드
             new Sequence(new List<Node>
             {
+                new CheckEnemyInAttackRange(transform),
+                new TaskAttack(transform),
+            }),
+            new Sequence(new List<Node>
+            {
                 new CheckEnemyInFOVRange(transform),
                 new TaskGoToTarget(transform),
             }),
-            /*new Sequence(new List<Node>
-            {
-                new CheckEnemyInAttackRange(transform),
-                new TaskAttack(transform),
-            }),*/
             new TaskPatrol(transform, waypoints),
         }) ;
 

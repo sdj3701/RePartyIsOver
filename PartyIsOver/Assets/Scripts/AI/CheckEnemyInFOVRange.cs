@@ -6,7 +6,7 @@ using BehaviorTree;
 
 public class CheckEnemyInFOVRange : Node
 {
-    //Define으로 변환
+    //Define으로 변환 
     private static int _enemyLayerMask = (1 << 26) | (1 << 27) | (1 << 28) | (1 << 29) | (1 << 30) | (1 << 31) ;
     private Transform _transform;
     private Animator _animator;
@@ -27,10 +27,10 @@ public class CheckEnemyInFOVRange : Node
             {
                 parent.parent.SetData("target", colliders[0].transform);
                 _animator.SetBool("Walking", true);
-                state = NodeState.Success;
+                state = NodeState.SUCCESS;
                 return state;
             }
-            state = NodeState.Failure;
+            state = NodeState.FAILURE;
             return state;
         }
         else
@@ -44,7 +44,7 @@ public class CheckEnemyInFOVRange : Node
                 _animator.SetBool("Walking", false);
             }
         }
-        state = NodeState.Success;
+        state = NodeState.SUCCESS;
         return state;
     }
 

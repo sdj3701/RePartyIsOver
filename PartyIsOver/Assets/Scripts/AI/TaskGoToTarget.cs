@@ -16,14 +16,16 @@ public class TaskGoToTarget : Node
     public override NodeState Evaluate()
     {
         Transform target = (Transform)GetData("target");
-        Debug.Log(target.position);
-        Debug.Log(_transform.position);
-        if(Vector3.Distance(_transform.position, target.position) > 0.01f)
+        if (target == null)
+            return state = NodeState.FAILURE;
+
+        if(Vector3.Distance(_transform.position, target.position) > 0.1f)
         {
             _transform.position = Vector3.MoveTowards(_transform.position, target.position, GuardBT.speed * Time.deltaTime);
             _transform.LookAt(target.position);
         }
-        state = NodeState.Running;
+
+        state = NodeState.RUNNIG;
         return state;
     }
 
