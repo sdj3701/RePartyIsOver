@@ -29,7 +29,6 @@ public class JumpingAnimation : Jumping
             Debug.Log(sm.JumpAnimation.ActionRigidbodies[0]);
             Debug.Log(sm.JumpAnimation.ActionForceDirections[0]);
             Debug.Log(sm.JumpAnimation.ActionForceValues[0]);
-            Debug.Log("데이터가 있습니다.");
         }
 
     }

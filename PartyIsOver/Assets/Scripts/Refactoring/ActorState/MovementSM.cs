@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Xml.Serialization;
 using TreeEditor;
 using UnityEngine;
@@ -52,7 +53,6 @@ public class MovementSM : StateMachine
         {
             case 0:
                 JumpAnimation.ReferenceRigidbodies[count] = Part(dataName);
-                Debug.Log(JumpAnimation.ReferenceRigidbodies[count]);
                 break;
             case 1:
                 JumpAnimation.ActionRigidbodies[count] = Part(dataName);
@@ -67,6 +67,7 @@ public class MovementSM : StateMachine
                 break;
         }
     }
+
 
     private Rigidbody Part(string part)
     {
@@ -166,5 +167,7 @@ public class MovementSM : StateMachine
         float power = float.Parse(value);
         return power;
     }
+
+
 
 }

@@ -22,7 +22,8 @@ public class ReadSpreadSheet : MonoBehaviour
         sm = GetComponent<MovementSM>();
     }
 
-    public async Task<string> LoadDataAsync(string dataName)
+    //반환 값이 필요로 하면 <string>을 추가해서 적용하면 됨
+    public async Task LoadDataAsync(string dataName)
     {
         UnityWebRequest www = UnityWebRequest.Get(GetTSVAddress(ADDRESS, RANGE, SHEET_ID));
         size = 0;
@@ -40,7 +41,6 @@ public class ReadSpreadSheet : MonoBehaviour
         {
             // 문제가 있으면 디버그로 알려주고 null을 반환
             Debug.Log("Error loading data : " + www.error);
-            return null;
         }
         else
         {
@@ -49,6 +49,7 @@ public class ReadSpreadSheet : MonoBehaviour
             // 행 별로 데이터 분할
             string[] rows = rawSheetData.Split('\n');
             size = rows.Length - 1;
+            ArraySize(dataName);
 
             sheetData = new string[rows.Length - 1, rows[0].Split('\t').Length];
             for (int i = 0; i < rows.Length - 1; i++)
@@ -58,11 +59,25 @@ public class ReadSpreadSheet : MonoBehaviour
                 {
                     sheetData[i, j] = values[j];
                     // TODO : 들어 있는 데이터 크기정해주기
-                    ArraySize(dataName);
                     sm.DataSave(i, j, sheetData[i, j]);
                 }
             }
-            return null;
+        }
+    }
+
+    public void ArraySize(string dataName)
+    {
+        // TODO : 나중에 string 을 가지고 와서 이름에 따라서 switch case 문으로 같은 받아 오면 될듯
+        switch (dataName)
+        {
+            case "JumpAnimation":
+                {
+                    sm.JumpAnimation.ReferenceRigidbodies = new Rigidbody[size];
+                    sm.JumpAnimation.ActionRigidbodies = new Rigidbody[size];
+                    sm.JumpAnimation.ActionForceValues = new float[size];
+                    sm.JumpAnimation.ActionForceDirections = new Define.ForceDirection[size];
+                }
+                break;
         }
     }
 
@@ -108,21 +123,6 @@ public class ReadSpreadSheet : MonoBehaviour
         return $"{address}/export?format=tsv&range={range}&gid={sheetID}";
     }
 
-    private void ArraySize(string dataName)
-    {
-        // TODO : 나중에 string 을 가지고 와서 이름에 따라서 switch case 문으로 같은 받아 오면 될듯
 
-        switch (dataName)
-        {
-            case "JumpingAnimation":
-                {
-                    sm.JumpAnimation.ReferenceRigidbodies = new Rigidbody[size];
-                    sm.JumpAnimation.ActionRigidbodies = new Rigidbody[size];
-                    sm.JumpAnimation.ActionForceValues = new float[size];
-                    sm.JumpAnimation.ActionForceDirections = new Define.ForceDirection[size];
-                }
-                break;
-        }
-    }
 
 }
