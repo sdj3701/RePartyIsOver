@@ -14,17 +14,18 @@ public class JumpingAnimation : Jumping
     public override async void Enter()
     {
         base.Enter();
+        // << : Load the player data when creating/ Move the code
         sm.ReadSpreadSheet.ADDRESS  = "https://docs.google.com/spreadsheets/d/16slVFqeg2egBHNcS-NPDRZzizFQwPH1oyr9AVtt9U2k";
         sm.ReadSpreadSheet.RANGE    = "B2:E";
         sm.ReadSpreadSheet.SHEET_ID = 0;
 
         if (sm.JumpAnimation.ReferenceRigidbodies == null)
         {
-            // 데이터 로드
             Debug.Log("데이터 없으니까 생성");
             await sm.ReadSpreadSheet.LoadDataAsync("JumpAnimation");
             Debug.Log("생성 완료");
         }
+        // >> :
 
         //뭔가 굳이 필요한가?
         for(int i =0; i< sm.JumpAnimation.ReferenceRigidbodies.Length; i++)

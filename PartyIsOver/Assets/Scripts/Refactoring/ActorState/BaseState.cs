@@ -48,6 +48,7 @@ public class BaseState
         }
     }
 
+    // 이코드를 사용을 할까?
     protected void AnimateWithDirectedForce(CharacterPhysicsMotion[] _forceSpeed, int _elementCount, Vector3 _dir = new Vector3(), float _punchpower = 1)
     {
         for (int i = 0; i < _forceSpeed[_elementCount].ReferenceRigidbodies.Length; i++)

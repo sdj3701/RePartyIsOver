@@ -8,9 +8,9 @@ using System.Drawing;
 
 public class ReadSpreadSheet : MonoBehaviour
 {
-    public string ADDRESS  = "https://docs.google.com/spreadsheets/d/16slVFqeg2egBHNcS-NPDRZzizFQwPH1oyr9AVtt9U2k";
-    public string RANGE    = "B2:E";
-    public long SHEET_ID   = 0;
+    public string ADDRESS  ;
+    public string RANGE    ;
+    public long SHEET_ID   ;
 
     public string[,] sheetData;
     int size;
