@@ -55,7 +55,6 @@ namespace BehaviorTree
         public object GetData(string key)
         {
             object value = null;
-            //Dictionary
             if (_dataContext.TryGetValue(key, out value))
                 return value;
 

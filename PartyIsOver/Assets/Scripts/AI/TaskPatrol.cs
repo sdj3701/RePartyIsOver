@@ -34,7 +34,6 @@ public class TaskPatrol : Node
                 _waiting = false;
                 _animator.SetBool("Walking", true);
             }
-
         }
         else
         {
@@ -54,10 +53,7 @@ public class TaskPatrol : Node
                 _transform.LookAt(wp.position);
             }
         }
-
         state = NodeState.RUNNIG;
         return state;
     }
-
-
 }

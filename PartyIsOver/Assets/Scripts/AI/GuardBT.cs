@@ -9,14 +9,12 @@ public class GuardBT : Tree
 
     public static float speed = 2f;
     public static float fovRange = 6f;
-    public static float attackRange = 1f;
+    public static float attackRange = 2f;
 
     protected override Node SetupTree()
     {
-        //Node root = new TaskPatrol(transform, waypoints);
         Node root = new Selector(new List<Node>
         {
-            //어택하는 간단한 노드
             new Sequence(new List<Node>
             {
                 new CheckEnemyInAttackRange(transform),
@@ -29,7 +27,6 @@ public class GuardBT : Tree
             }),
             new TaskPatrol(transform, waypoints),
         }) ;
-
         return root;
     }
 }
