@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using BehaviorTree;
+using Unity.VisualScripting;
 
 public class TaskAttack : Node
 {
     private Animator _animator;
 
     private Transform _lastTarget;
-    //이친구도 바꿔야함
     private PlayerCharacter playerCharacter;
-
 
     private float _attackTime = 1f;
     private float _attackCounter = 0f;
@@ -26,15 +25,15 @@ public class TaskAttack : Node
         Transform target = (Transform)GetData("target");
         if(target != _lastTarget)
         {
-            //어떤 함수를 불러오면 바로 기절시키는 함수를 불러오는 스크립트로 바꿔야함
-            playerCharacter = target.GetComponent<PlayerCharacter>();
+            playerCharacter = target.parent.GetComponent<PlayerCharacter>();
             _lastTarget = target;
         }
         
         _attackCounter += Time.deltaTime;
         if(_attackCounter >= _attackTime)
         {
-            if(playerCharacter.IsDie)
+            bool enemyIsDead = playerCharacter.TakeHit();
+            if(enemyIsDead)
             {
                 ClearData("target");
                 _animator.SetBool("Attacking", false);
