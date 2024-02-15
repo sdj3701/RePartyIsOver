@@ -101,7 +101,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacterBase
     // << : 추후 다른걸로 대처 TestCase
     public bool TakeHit()
     {
-        _healthpoints -= 30;
+        _healthpoints -= 10;
         bool isDead = _healthpoints <= 0;
         if (isDead) _Die();
         return isDead;
