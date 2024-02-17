@@ -14,26 +14,24 @@ public class JumpingAnimation : Jumping
     public override async void Enter()
     {
         base.Enter();
-        // << : Load the player data when creating/ Move the code
-        sm.ReadSpreadSheet.ADDRESS  = "https://docs.google.com/spreadsheets/d/16slVFqeg2egBHNcS-NPDRZzizFQwPH1oyr9AVtt9U2k";
-        sm.ReadSpreadSheet.RANGE    = "B2:E";
-        sm.ReadSpreadSheet.SHEET_ID = 0;
-
+        // << : Load the player data when creating/ Move the code        
         if (sm.JumpAnimation.ReferenceRigidbodies == null)
         {
+            sm.ReadSpreadSheet.ADDRESS = "https://docs.google.com/spreadsheets/d/16slVFqeg2egBHNcS-NPDRZzizFQwPH1oyr9AVtt9U2k";
+            sm.ReadSpreadSheet.RANGE = "B2:E";
+            sm.ReadSpreadSheet.SHEET_ID = 0;
+
             Debug.Log("데이터 없으니까 생성");
-            await sm.ReadSpreadSheet.LoadDataAsync("JumpAnimation");
+            await sm.ReadSpreadSheet.LoadDataAsync("JumpAnimation", "Animation");
             Debug.Log("생성 완료");
         }
-        // >> :        
-
+        // >> : 
+        
         for(int i =0; i< sm.JumpAnimation.ReferenceRigidbodies.Length; i++)
         {
             AnimateWithDirectedForce(sm.JumpAnimation,Vector3.up * 1.2f);
-            if (i == 1)
-            {
+            if (i == 2)
                 AnimateWithDirectedForce(sm.JumpAnimation, Vector3.down);
-            }
         }
     }
 

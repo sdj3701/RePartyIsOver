@@ -18,6 +18,7 @@ public class MovementSM : StateMachine
     public BodyHandler BodyHandler;
     public ReadSpreadSheet ReadSpreadSheet;
     public CharacterPhysicsMotion JumpAnimation;
+    public CharacterMotionAngle JumpAngle;
     //speed는 ScriptableObject 로 변경해서 받아야함
     public float Speed = 4;
     public float RunSpeed = 1.35f;
@@ -28,10 +29,11 @@ public class MovementSM : StateMachine
         MovingState = new MovingAnimation(this);
         JumpingState = new JumpingAnimation(this);
         JumpAnimation = new CharacterPhysicsMotion();
+        JumpAngle = new CharacterMotionAngle();
         Init();
     }
 
-    private void Init()
+    private async void Init()
     {
         Transform hip = transform.Find("GreenHip");
         Rigidbody = hip.GetComponent<Rigidbody>();
@@ -39,11 +41,31 @@ public class MovementSM : StateMachine
         FootRigidbody = foot.GetComponent<Rigidbody>();
         BodyHandler = GetComponent<BodyHandler>();
         ReadSpreadSheet = GetComponent<ReadSpreadSheet>();
+
+        RoadData();
     }
 
     protected override BaseState GetInitialState()
     {
         return IdleState;
+    }
+
+    private async void RoadData()
+    {
+        // << : JumpAnimation
+        ReadSpreadSheet.ADDRESS = "https://docs.google.com/spreadsheets/d/16slVFqeg2egBHNcS-NPDRZzizFQwPH1oyr9AVtt9U2k";
+        ReadSpreadSheet.RANGE = "B2:E";
+        ReadSpreadSheet.SHEET_ID = 0;
+
+        await ReadSpreadSheet.LoadDataAsync("JumpAnimation", "Animation");
+        // >> :
+        // << : JumpAngle
+        ReadSpreadSheet.ADDRESS = "https://docs.google.com/spreadsheets/d/16slVFqeg2egBHNcS-NPDRZzizFQwPH1oyr9AVtt9U2k";
+        ReadSpreadSheet.RANGE = "B2:H";
+        ReadSpreadSheet.SHEET_ID = 484341619;
+
+        await ReadSpreadSheet.LoadDataAsync("JumpAngle", "Angle");
+        // >> :
     }
 
     public void DataSave(int count,int num, string dataName)
@@ -63,6 +85,34 @@ public class MovementSM : StateMachine
                 JumpAnimation.ActionForceValues[count] = PowerValue(dataName);
                 break;
             default:
+                break;
+        }
+    }
+
+    public void DataAngle(int count, int num, string dataName)
+    {
+        switch (num)
+        {
+            case 0:
+                JumpAngle.StandardRigidbodies[count] = Part(dataName);
+                break;
+            case 1:
+                JumpAngle.ActionDirections[count] = PartTrnasform(dataName);
+                break;
+            case 2:
+                JumpAngle.TargetDirections[count] = PartTrnasform(dataName);
+                break;
+            case 3:
+                JumpAngle.ActionRotationDirections[count] = Direction(dataName);
+                break;
+            case 4:
+                JumpAngle.TargetRotationDirections[count] = Direction(dataName);
+                break;
+            case 5:
+                JumpAngle.AngleStabilities[count] = PowerValue(dataName);
+                break;
+            case 6:
+                JumpAngle.AnglePowerValues[count] = PowerValue(dataName); 
                 break;
         }
     }
@@ -166,6 +216,63 @@ public class MovementSM : StateMachine
         return power;
     }
 
-
-
+    private Transform PartTrnasform(string part)
+    {
+        Transform pratTransform;
+        switch (part)
+        {
+            case "GreenHead":
+                pratTransform = BodyHandler.Head.PartRigidbody.transform;
+                break;
+            case "GreenChest":
+                pratTransform = BodyHandler.Chest.PartRigidbody.transform;
+                break;
+            case "GreenWaist":
+                pratTransform = BodyHandler.Waist.PartRigidbody.transform;
+                break;
+            case "GreenHip":
+                pratTransform = BodyHandler.Hip.PartRigidbody.transform;
+                break;
+            case "GreenLegR1":
+                pratTransform = BodyHandler.RightLeg.PartRigidbody.transform;
+                break;
+            case "GreenLegL1":
+                pratTransform = BodyHandler.LeftLeg.PartRigidbody.transform;
+                break;
+            case "GreenLegR2":
+                pratTransform = BodyHandler.RightThigh.PartRigidbody.transform;
+                break;
+            case "GreenLegL2":
+                pratTransform = BodyHandler.LeftThigh.PartRigidbody.transform;
+                break;
+            case "foot_r":
+                pratTransform = BodyHandler.RightFoot.PartRigidbody.transform;
+                break;
+            case "foot_l":
+                pratTransform = BodyHandler.LeftFoot.PartRigidbody.transform;
+                break;
+            case "GreenUpperArmL":
+                pratTransform = BodyHandler.LeftArm.PartRigidbody.transform;
+                break;
+            case "GreenUpperArmR":
+                pratTransform = BodyHandler.RightArm.PartRigidbody.transform;
+                break;
+            case "GreenForeArmL":
+                pratTransform = BodyHandler.LeftForearm.PartRigidbody.transform;
+                break;
+            case "GreenForeArmR":
+                pratTransform = BodyHandler.RightForearm.PartRigidbody.transform;
+                break;
+            case "GreenFistL":
+                pratTransform = BodyHandler.LeftHand.PartRigidbody.transform;
+                break;
+            case "GreenFistR":
+                pratTransform = BodyHandler.RightHand.PartRigidbody.transform;
+                break;
+            default:
+                pratTransform = null;
+                break;
+        }
+        return pratTransform;
+    }
 }

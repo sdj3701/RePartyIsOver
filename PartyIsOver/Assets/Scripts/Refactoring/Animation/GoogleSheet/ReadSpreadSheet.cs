@@ -23,7 +23,7 @@ public class ReadSpreadSheet : MonoBehaviour
     }
 
     //반환 값이 필요로 하면 <string>을 추가해서 적용하면 됨
-    public async Task LoadDataAsync(string dataName)
+    public async Task LoadDataAsync(string dataName, string motion)
     {
         UnityWebRequest www = UnityWebRequest.Get(GetTSVAddress(ADDRESS, RANGE, SHEET_ID));
         size = 0;
@@ -58,9 +58,13 @@ public class ReadSpreadSheet : MonoBehaviour
                 for (int j = 0; j < values.Length; j++)
                 {
                     sheetData[i, j] = values[j];
-                    Debug.Log(sheetData[i, j]);
                     // TODO : 들어 있는 데이터 크기정해주기
-                    sm.DataSave(i, j, sheetData[i, j]);
+                    if (motion == "Animation")
+                        sm.DataSave(i, j, sheetData[i, j]);
+                    else if (motion == "Angle")
+                        sm.DataAngle(i, j, sheetData[i, j]);
+                    else
+                        Debug.Log("motion Error");
                 }
             }
         }
@@ -78,6 +82,17 @@ public class ReadSpreadSheet : MonoBehaviour
                     sm.JumpAnimation.ActionRigidbodies = new Rigidbody[size];
                     sm.JumpAnimation.ActionForceValues = new float[size];
                     sm.JumpAnimation.ActionForceDirections = new Define.ForceDirection[size];
+                }
+                break;
+            case "JumpAngle":
+                {
+                    sm.JumpAngle.StandardRigidbodies = new Rigidbody[size];
+                    sm.JumpAngle.ActionDirections = new Transform[size];
+                    sm.JumpAngle.TargetDirections = new Transform[size];
+                    sm.JumpAngle.ActionRotationDirections = new Define.ForceDirection[size];
+                    sm.JumpAngle.TargetRotationDirections = new Define.ForceDirection[size];
+                    sm.JumpAngle.AngleStabilities = new float[size];
+                    sm.JumpAngle.AnglePowerValues = new float[size];
                 }
                 break;
         }

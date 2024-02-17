@@ -48,20 +48,6 @@ public class BaseState
         }
     }
 
-    // 이코드를 사용을 할까?
-    protected void AnimateWithDirectedForce(CharacterPhysicsMotion[] _forceSpeed, int _elementCount, Vector3 _dir = new Vector3(), float _punchpower = 1)
-    {
-        for (int i = 0; i < _forceSpeed[_elementCount].ReferenceRigidbodies.Length; i++)
-        {
-            if (_forceSpeed[_elementCount].ActionForceDirections[i] == Define.ForceDirection.Zero || _forceSpeed[_elementCount].ActionForceDirections[i] == Define.ForceDirection.ZeroReverse)
-                _forceSpeed[_elementCount].ActionRigidbodies[i].AddForce(_dir * _forceSpeed[_elementCount].ActionForceValues[i], ForceMode.Impulse);
-            else
-            {
-                Vector3 _direction = GetForceDirection(_forceSpeed[_elementCount], i);
-                _forceSpeed[_elementCount].ActionRigidbodies[i].AddForce(_direction * _forceSpeed[_elementCount].ActionForceValues[i], ForceMode.Impulse);
-            }
-        }
-    }
     protected void AnimateWithDirectedForce(CharacterPhysicsMotion _forceSpeed, Vector3 _dir = new Vector3(), float _punchpower = 1)
     {
         for (int i = 0; i < _forceSpeed.ReferenceRigidbodies.Length; i++)
