@@ -114,6 +114,4 @@ public class BaseState
         return _direction;
     }
 
-    
-
 }

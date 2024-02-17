@@ -48,16 +48,17 @@ public class ReadSpreadSheet : MonoBehaviour
             string rawSheetData = www.downloadHandler.text;
             // 행 별로 데이터 분할
             string[] rows = rawSheetData.Split('\n');
-            size = rows.Length - 1;
+            size = rows.Length;
             ArraySize(dataName);
 
-            sheetData = new string[rows.Length - 1, rows[0].Split('\t').Length];
-            for (int i = 0; i < rows.Length - 1; i++)
+            sheetData = new string[rows.Length, rows[0].Split('\t').Length];
+            for (int i = 0; i < rows.Length; i++)
             {
                 string[] values = rows[i].Split('\t');
                 for (int j = 0; j < values.Length; j++)
                 {
                     sheetData[i, j] = values[j];
+                    Debug.Log(sheetData[i, j]);
                     // TODO : 들어 있는 데이터 크기정해주기
                     sm.DataSave(i, j, sheetData[i, j]);
                 }

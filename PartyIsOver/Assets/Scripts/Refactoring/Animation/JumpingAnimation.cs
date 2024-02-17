@@ -25,14 +25,15 @@ public class JumpingAnimation : Jumping
             await sm.ReadSpreadSheet.LoadDataAsync("JumpAnimation");
             Debug.Log("생성 완료");
         }
-        // >> :
+        // >> :        
 
-        //뭔가 굳이 필요한가?
         for(int i =0; i< sm.JumpAnimation.ReferenceRigidbodies.Length; i++)
         {
             AnimateWithDirectedForce(sm.JumpAnimation,Vector3.up * 1.2f);
             if (i == 1)
+            {
                 AnimateWithDirectedForce(sm.JumpAnimation, Vector3.down);
+            }
         }
     }
 
