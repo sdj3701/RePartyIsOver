@@ -21,17 +21,28 @@ public class JumpingAnimation : Jumping
             sm.ReadSpreadSheet.RANGE = "B2:E";
             sm.ReadSpreadSheet.SHEET_ID = 0;
 
-            Debug.Log("데이터 없으니까 생성");
             await sm.ReadSpreadSheet.LoadDataAsync("JumpAnimation", "Animation");
-            Debug.Log("생성 완료");
+        }
+
+        if(sm.JumpAngle.StandardRigidbodies == null)
+        {
+            sm.ReadSpreadSheet.ADDRESS = "https://docs.google.com/spreadsheets/d/16slVFqeg2egBHNcS-NPDRZzizFQwPH1oyr9AVtt9U2k";
+            sm.ReadSpreadSheet.RANGE = "B2:H";
+            sm.ReadSpreadSheet.SHEET_ID = 484341619;
+
+            await sm.ReadSpreadSheet.LoadDataAsync("JumpAngle", "Angle");
         }
         // >> : 
-        
-        for(int i =0; i< sm.JumpAnimation.ReferenceRigidbodies.Length; i++)
+
+        for (int i = 0; i < sm.JumpAnimation.ReferenceRigidbodies.Length; i++) 
         {
-            AnimateWithDirectedForce(sm.JumpAnimation,Vector3.up * 1.2f);
+            AnimateWithDirectedForce(sm.JumpAnimation, Vector3.up * 1.2f);
             if (i == 2)
                 AnimateWithDirectedForce(sm.JumpAnimation, Vector3.down);
+        }
+        for (int i = 0; i < sm.JumpAngle.StandardRigidbodies.Length; i++)
+        {
+            AniAngleForce(sm.JumpAngle, moveDir + new Vector3(0, 0.2f, 0f));
         }
     }
 

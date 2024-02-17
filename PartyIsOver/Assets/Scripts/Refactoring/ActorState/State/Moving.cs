@@ -44,7 +44,7 @@ public class Moving : Grounded
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        //외부
+        //외부 sm.PlayerCharacter.horizontalInput로 가지고 와야하나?
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 

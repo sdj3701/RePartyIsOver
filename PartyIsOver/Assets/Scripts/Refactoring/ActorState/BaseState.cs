@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Scripting;
+using static AniAngleData;
 using static AniFrameData;
 using static CharacterPhysicsMotion;
+using static Define;
 
 public class BaseState
 {
@@ -18,6 +20,7 @@ public class BaseState
     protected Vector3 runVectorForce10 = new Vector3(0f, 0f, 0.8f);
     protected Vector3 moveDir;
     protected Vector3 moveInput;
+    // TODO : protected float horizontalInput, verticalInput; 선언해서 관리
 
     public BaseState(string name, StateMachine stateMachine)
     {
@@ -62,6 +65,20 @@ public class BaseState
         }
     }
 
+    protected void AniAngleForce(CharacterMotionAngle _aniAngleData, Vector3 _vector)
+    {
+        for (int i = 0; i < _aniAngleData.StandardRigidbodies.Length; i++)
+        {
+            Vector3 _angleDirection = GetAngleDirection(_aniAngleData.ActionRotationDirections[i],
+                _aniAngleData.ActionDirections[i]);
+            Vector3 _targetDirection = GetAngleDirection(_aniAngleData.TargetRotationDirections[i],
+                _aniAngleData.TargetDirections[i]);
+
+            AlignToVector(_aniAngleData.StandardRigidbodies[i], _angleDirection, _vector + _targetDirection,
+                _aniAngleData.AngleStabilities[i], _aniAngleData.AnglePowerValues[i]);
+        }
+    }
+
     protected Vector3 GetForceDirection(CharacterPhysicsMotion data, int index)
     {
         Define.ForceDirection _rollState = data.ActionForceDirections[index];
@@ -97,6 +114,41 @@ public class BaseState
                 _direction = Vector3.zero;
                 break;
         }
+        return _direction;
+    }
+
+    protected Vector3 GetAngleDirection(Define.ForceDirection _angleState, Transform _Transformdirection)
+    {
+        Vector3 _direction;
+
+        switch (_angleState)
+        {
+            case Define.ForceDirection.Zero:
+                _direction = Vector3.zero;
+                break;
+            case Define.ForceDirection.Forward:
+                _direction = -_Transformdirection.transform.up;
+                break;
+            case Define.ForceDirection.Backward:
+                _direction = _Transformdirection.transform.up;
+                break;
+            case Define.ForceDirection.Up:
+                _direction = _Transformdirection.transform.forward;
+                break;
+            case Define.ForceDirection.Down:
+                _direction = -_Transformdirection.transform.forward;
+                break;
+            case Define.ForceDirection.Left:
+                _direction = -_Transformdirection.transform.right;
+                break;
+            case Define.ForceDirection.Right:
+                _direction = _Transformdirection.transform.right;
+                break;
+            default:
+                _direction = Vector3.zero;
+                break;
+        }
+
         return _direction;
     }
 

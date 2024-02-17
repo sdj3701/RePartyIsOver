@@ -33,7 +33,7 @@ public class MovementSM : StateMachine
         Init();
     }
 
-    private async void Init()
+    private async void Init() 
     {
         Transform hip = transform.Find("GreenHip");
         Rigidbody = hip.GetComponent<Rigidbody>();
