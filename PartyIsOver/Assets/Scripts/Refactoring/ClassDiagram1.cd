@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BaseState" Collapsed="true">
+    <Position X="8.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAICEABQAAAAAAAwABAAEDAAAIAAgAAEAIQA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\ActorState\BaseState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CombatHandler" Collapsed="true">
+    <Position X="25.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAFBAAAAgAgAAAAAAAAAEAEAAAAAAAAAAAGAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\ActorState\CombatHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Grounded" Collapsed="true">
+    <Position X="6.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\ActorState\Grounded.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovementSM" Collapsed="true">
+    <Position X="13" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAACJAAACDGEASACAABBAAAAAAABAAACBIAACEA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\ActorState\MovementSM.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Idle" Collapsed="true">
+    <Position X="5.75" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAABQIAg=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\ActorState\State\Idle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Jumping" Collapsed="true">
+    <Position X="10.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEgAAIAAAAAAAAAAAAACAQAEAAAQAAAACABAIAg=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\ActorState\State\Jumping.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Moving" Collapsed="true">
+    <Position X="8" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABgAAAAAAAAIAAAAAAACAAAAMAAAAAAAAAAHAIAg=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\ActorState\State\Moving.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="StateMachine" Collapsed="true">
+    <Position X="13" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAAAAAiAABIAAIAAAAABAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\ActorState\StateMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharacterMotionAngle" Collapsed="true">
+    <Position X="21.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAECAAAAIAAAAAAEAAAAAAAAAAAEQCAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\Animation\CharacterMotionAngle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharacterPhysicsMotion" Collapsed="true">
+    <Position X="23.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAQEAAAAQAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\Animation\CharacterPhysicsMotion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AnimationSheetData" Collapsed="true">
+    <Position X="21.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\Animation\GoogleSheet\AnimationSheetData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ReadSpreadSheet" Collapsed="true">
+    <Position X="15.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAIgAAIAAiAAACAAAAAABAAAAAUA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\Animation\GoogleSheet\ReadSpreadSheet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IdleAnimation" Collapsed="true">
+    <Position X="5.75" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\Animation\IdleAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JumpingAnimation" Collapsed="true">
+    <Position X="10.25" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\Animation\JumpingAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MovingAnimation" Collapsed="true">
+    <Position X="8" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAKAAAAAAAAAAAAAAAAAAAAAQCAAAAAACAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\Animation\MovingAnimation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CheckEnemyInAttackRange" Collapsed="true">
+    <Position X="5.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAgAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\BehaviorTree\CheckEnemyInAttackRange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CheckEnemyInFOVRange" Collapsed="true">
+    <Position X="8" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQEAAgAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\BehaviorTree\CheckEnemyInFOVRange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GuardBT" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAABJAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\BehaviorTree\GuardBT.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaskAttack" Collapsed="true">
+    <Position X="10.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAQIAAgAAAAAAAIAAIAAAAAAAEAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\BehaviorTree\TaskAttack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaskGoToTarget" Collapsed="true">
+    <Position X="14.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\BehaviorTree\TaskGoToTarget.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaskPatrol" Collapsed="true">
+    <Position X="19.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAQwCQgAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\BehaviorTree\TaskPatrol.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BodyHandler" Collapsed="true">
+    <Position X="23.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAQAAggAgAIUKAAAAIgAACEgAQAAEAAQAAQAAAAAIA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\BodyHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BodyPart" Collapsed="true">
+    <Position X="25.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAABCAAAAAAgAAAAAAAACEA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\BodyPart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CameraControl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAgBAAAAAAAAAAAAAAAAAAAAAAEE=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\Camera\CameraControl.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PlayerCharacter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QJAAgAAAAiAECgAAAAACIBQQAAAAAAACkKACEgEAIGA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\Character\PlayerCharacter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Context" Collapsed="true">
+    <Position X="28.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAgAABAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\StatePattern\Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Burn" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAACAAAAAAABAAAhAIEAAQAAAAAAAAAAIQhABAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\StatePattern\State\Burn.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Drunk" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAABAAAhAAEAAQAAAAAAAAAAIQhABAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\StatePattern\State\Drunk.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.153" Collapsed="true" />
+  </Class>
+  <Class Name="Exhausted" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAEAAAAAAChAAAAAQAAAAAAAAAAIQhABAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\StatePattern\State\Exhausted.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Ice" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAhAAAhAAEAAQAAAACAAAAAIQhABAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\StatePattern\State\Ice.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PowerUp" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAABAAAhAAEAAQAAAAAAAACAIQhABAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\StatePattern\State\PowerUp.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Shock" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAgCAAAAAAABAAChAAEAIQAAAAAAAAAAIQhABAABA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\StatePattern\State\Shock.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Stun" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAABAAAAAAAChAAAAIQAAAAAAAAAAIQhABACAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\StatePattern\State\Stun.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BehaviorTree.Node" Collapsed="true">
+    <Position X="12.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABEAAAAARAAAAAAgAAAAACQAAEAIAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\BehaviorTree\Node.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviorTree.Selector" Collapsed="true">
+    <Position X="12.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\BehaviorTree\Selector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviorTree.Sequence" Collapsed="true">
+    <Position X="17" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\BehaviorTree\Sequence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviorTree.Tree" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAQAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\BehaviorTree\Tree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ICameraControllable" Collapsed="true">
+    <Position X="21.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\Camera\ICameraControllable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ICharacterBase" Collapsed="true">
+    <Position X="23.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAACAAAAAAAAAQQAAAAAAAAAAAAEgAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\Character\ICharacterBase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IDebuffState" Collapsed="true">
+    <Position X="25.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAhAAAAAQAAAAAAAAAAIQhABAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\StatePattern\IDebuffState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="BehaviorTree.NodeState" Collapsed="true">
+    <Position X="21.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAACAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Refactoring\BehaviorTree\Node.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Malgun Gothic" Size="9" />
+</ClassDiagram>

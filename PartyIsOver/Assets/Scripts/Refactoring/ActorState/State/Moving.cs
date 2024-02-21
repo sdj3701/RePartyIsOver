@@ -48,6 +48,16 @@ public class Moving : Grounded
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
 
+        if(horizontalInput > 0)
+        {
+            sm.turnOnCommand.Execute();
+        }    
+
+        if(verticalInput > 0)
+        {
+            sm.turnOffCommand.Execute();
+        }
+
         moveInput = new Vector3(horizontalInput, 0, verticalInput);
 
         if(Input.GetKey(KeyCode.LeftShift))

@@ -23,6 +23,9 @@ public class MovementSM : StateMachine
     public float Speed = 4;
     public float RunSpeed = 1.35f;
 
+    public ICommand turnOnCommand;
+    public ICommand turnOffCommand;
+
     private void Awake()
     {
         IdleState = new IdleAnimation(this);
@@ -41,6 +44,11 @@ public class MovementSM : StateMachine
         FootRigidbody = foot.GetComponent<Rigidbody>();
         BodyHandler = GetComponent<BodyHandler>();
         ReadSpreadSheet = GetComponent<ReadSpreadSheet>();
+
+        Move moveing = GetComponent<Move>();
+
+        turnOnCommand = new TurnOnCommand(moveing);
+        turnOffCommand = new TurnOffCommand(moveing);
 
         RoadData();
     }

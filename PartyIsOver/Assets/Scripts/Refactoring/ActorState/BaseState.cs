@@ -55,7 +55,8 @@ public class BaseState
     {
         for (int i = 0; i < _forceSpeed.ReferenceRigidbodies.Length; i++)
         {
-            if (_forceSpeed.ActionForceDirections[i] == Define.ForceDirection.Zero || _forceSpeed.ActionForceDirections[i] == Define.ForceDirection.ZeroReverse)
+            if (_forceSpeed.ActionForceDirections[i] == Define.ForceDirection.Zero ||
+                _forceSpeed.ActionForceDirections[i] == Define.ForceDirection.ZeroReverse)
                 _forceSpeed.ActionRigidbodies[i].AddForce(_dir * _forceSpeed.ActionForceValues[i], ForceMode.Impulse);
             else
             {
