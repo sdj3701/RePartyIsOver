@@ -6,17 +6,17 @@ using UnityEngine;
 public class Moving : Grounded
 {
     private float inputspeed;
-    private float horizontalInput;
-    private float verticalInput;
+    //private float horizontalInput;
+    //private float verticalInput;
     protected float MovingMotionSpeed;
     protected float MovingMotionTimer = 0;
 
     protected bool isRun;
 
-    protected Define.Pose leftLegPose;
-    protected Define.Pose rightLegPose;
-    protected Define.Pose leftArmPose;
-    protected Define.Pose rightArmPose;
+    public Define.Pose leftLegPose;
+    public Define.Pose rightLegPose;
+    public Define.Pose leftArmPose;
+    public Define.Pose rightArmPose;
 
     public Moving(MovementSM stateMachine) : base("Moving", stateMachine) 
     {
@@ -44,21 +44,18 @@ public class Moving : Grounded
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        //외부 sm.PlayerCharacter.horizontalInput로 가지고 와야하나?
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        moveInput = new Vector3(sm.PlayerCharacter.horizontalInput, 0, sm.PlayerCharacter.verticalInput);
 
-        if(horizontalInput > 0)
+        if (sm.PlayerCharacter.horizontalInput > 0 || sm.PlayerCharacter.horizontalInput < 0)
         {
             sm.turnOnCommand.Execute();
         }    
 
-        if(verticalInput > 0)
+        if(sm.PlayerCharacter.verticalInput > 0 || sm.PlayerCharacter.verticalInput < 0)
         {
             sm.turnOffCommand.Execute();
         }
 
-        moveInput = new Vector3(horizontalInput, 0, verticalInput);
 
         if(Input.GetKey(KeyCode.LeftShift))
         {

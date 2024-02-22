@@ -29,7 +29,7 @@ public class MovementSM : StateMachine
     private void Awake()
     {
         IdleState = new IdleAnimation(this);
-        MovingState = new MovingAnimation(this);
+        //MovingState = new MovingAnimation(this);
         JumpingState = new JumpingAnimation(this);
         JumpAnimation = new CharacterPhysicsMotion();
         JumpAngle = new CharacterMotionAngle();

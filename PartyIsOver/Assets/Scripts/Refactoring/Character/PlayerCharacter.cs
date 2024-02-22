@@ -69,6 +69,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacterBase
 
     #region 변수
     private int _healthpoints;
+    public float horizontalInput;
+    public float verticalInput;
     #endregion
 
     #region 컴포넌트
@@ -120,6 +122,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacterBase
 
     void FixedUpdate()
     {
+        horizontalInput = Input.GetAxis("Horizontal");
+        verticalInput = Input.GetAxis("Vertical");
     }
 
     void LateUpdate()

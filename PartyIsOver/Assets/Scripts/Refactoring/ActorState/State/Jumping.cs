@@ -6,13 +6,10 @@ using UnityEngine.Experimental.AI;
 
 public class Jumping : BaseState
 {
-    private float horizontalInput;
-    private float verticalInput;
     private bool grounded;
     private bool change;
 
     private LayerMask groundLayer;
-    private CharacterPhysicsMotion[] JumpingAnimation;
 
     public Jumping(MovementSM stateMachine) : base("Jumping", stateMachine)
     {
@@ -23,7 +20,6 @@ public class Jumping : BaseState
     {
         base.Enter();
 
-        //sm.Rigidbody.AddForce(Vector3.up * sm.Speed * 0.5f);
         change = false;
     }
 
@@ -31,10 +27,7 @@ public class Jumping : BaseState
     {
         base.UpdateLogic();
 
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
-
-        moveInput = new Vector3(horizontalInput, 0, verticalInput);
+        moveInput = new Vector3(sm.PlayerCharacter.horizontalInput, 0, sm.PlayerCharacter.verticalInput);
         RunCyclePoseBody();
         //change 함수를 추가한 이유 : UpdateLogic이 더빨라서 Enter에서 false로 반환해도 ture로 반환해서 change로 변경이 되었는지 확인
         if (grounded && change)

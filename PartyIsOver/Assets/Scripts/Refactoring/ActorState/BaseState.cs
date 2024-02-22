@@ -20,7 +20,6 @@ public class BaseState
     protected Vector3 runVectorForce10 = new Vector3(0f, 0f, 0.8f);
     protected Vector3 moveDir;
     protected Vector3 moveInput;
-    // TODO : protected float horizontalInput, verticalInput; 선언해서 관리
 
     public BaseState(string name, StateMachine stateMachine)
     {

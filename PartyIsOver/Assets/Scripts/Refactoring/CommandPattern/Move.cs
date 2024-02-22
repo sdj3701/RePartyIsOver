@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+    //public MovingAnimation MovingAnimation;
+    MovementSM sm;
+
+    private void Awake()
+    {
+        sm = GetComponent<MovementSM>();
+        sm.MovingState = new MovingAnimation(sm);
+    }
+
     public void TurnOn()
     {
         Debug.Log("전등이 켜졌습니다.");

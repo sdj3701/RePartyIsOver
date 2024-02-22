@@ -175,6 +175,7 @@ public class MovingAnimation : Moving
         Vector3 lookRight = new Vector3(sm.PlayerCharacter.CameraTransform.right.x, 0f, sm.PlayerCharacter.CameraTransform.right.z).normalized;
         moveDir = lookForward * moveInput.z + lookRight * moveInput.x;
 
+
         sm.BodyHandler.Chest.PartRigidbody.AddForce((runVectorForce10 + moveDir), ForceMode.VelocityChange);
         sm.BodyHandler.Hip.PartRigidbody.AddForce((-runVectorForce5 + -moveDir), ForceMode.VelocityChange);
 

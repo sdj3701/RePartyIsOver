@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Idle : Grounded
 {
-    private float horizontalInput;
-    private float verticalInput;
     private float idleTimer = 0;
 
     public Idle(MovementSM stateMachine) : base("Idel", stateMachine) {}
@@ -14,17 +12,15 @@ public class Idle : Grounded
     {
         base.Enter();
         //TODO : 속도 0으로 설정
-        horizontalInput = 0f;
-        verticalInput = 0f;
+        sm.PlayerCharacter.horizontalInput = 0f;
+        sm.PlayerCharacter.verticalInput = 0f;
         idleTimer = 0f;
     }
     public override void UpdateLogic()
     {
         base.UpdateLogic();
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
         //TODO : 키 입력이 생기면 Moving으로 변경
-        if (Mathf.Abs(horizontalInput) > Mathf.Epsilon || Mathf.Abs(verticalInput) > Mathf.Epsilon)
+        if (Mathf.Abs(sm.PlayerCharacter.horizontalInput) > Mathf.Epsilon || Mathf.Abs(sm.PlayerCharacter.verticalInput) > Mathf.Epsilon)
             stateMachine.ChangeState(((MovementSM)stateMachine).MovingState);
 
     }
